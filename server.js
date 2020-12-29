@@ -26,7 +26,7 @@ require("./backend/services/passport");
 const authRoutes = require("./backend/routes/auth");
 
 //Middleware
-app.use("/img", express.static("/backend/assets"));
+app.use("/img", express.static(__dirname + "/backend/assets"));
 app.use(
     session({
         secret: process.env.sessionKey,
