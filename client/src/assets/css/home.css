@@ -1,0 +1,59 @@
+.ui.list.welcomeList {
+    width: 50%;
+    margin: 50px auto 0;
+}
+.homePage {
+    padding: 0;
+}
+.homePage > .mainContent {
+    color: #ffffff;
+    height: 60%;
+    backdrop-filter: brightness(50%);
+}
+.homePage > .mainContent > div {
+    height: 100%;
+}
+.leftColumn {
+    border-right: 2px solid #ffffff;
+}
+.leftColumn,
+.rightColumn {
+    height: 55%;
+}
+div.login {
+    height: 100%;
+    padding: 0 60px;
+}
+form.loginForm > div.field {
+    text-align: left;
+}
+form.loginForm > div.field > .label {
+    margin-bottom: 0;
+}
+form.loginForm > div.field > input.loginInput,
+form.loginForm > div.field > input.loginInput:focus {
+    background-color: transparent;
+    color: #ffffff;
+}
+form.loginForm > div.field > input.loginInput {
+    border-bottom: 2px solid #ffffff;
+}
+form.loginForm > div.field > input.loginInput:focus {
+    border-color: transparent;
+    border-bottom: 2px solid #f2711c;
+    font-weight: 800;
+}
+form.loginForm > button.ui.button {
+    margin: 20px 0 !important;
+    padding: 8px 35px;
+}
+.header.openRegisterModal {
+    cursor: pointer;
+}
+div.modal.ui > div.header,
+.registerForm {
+    font-family: "PT Sans";
+}
+div.ui.modal > div.header {
+    color: #f2711c;
+}

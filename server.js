@@ -1,0 +1,37 @@
+const express = require("express");
+const bodyParser = require("body-parser");
+const session = require("express-session");
+const passport = require("passport");
+const { config } = require("dotenv");
+config();
+
+const app = express();
+const PORT = process.env.PORT || 8080;
+const jsonParser = bodyParser.json();
+
+//Services
+require("./backend/services/mongoDB");
+require("./backend/services/passport");
+
+//Routes
+const authRoutes = require("./backend/routes/auth");
+
+//Middleware
+app.use("/img", express.static("./backend/assets"));
+app.use(
+    session({
+        secret: process.env.sessionKey,
+        resave: false,
+        saveUninitialized: false,
+        cookie: {
+            maxAge: 3600000,
+        },
+    })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Serve routes
+app.use("/", jsonParser, authRoutes);
+
+app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));
