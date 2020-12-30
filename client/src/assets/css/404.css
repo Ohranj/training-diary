@@ -1,0 +1,9 @@
+.pageContent {
+    backdrop-filter: brightness(40%) !important;
+}
+div.ui.message {
+    cursor: pointer;
+}
+div.ui > div.content > div.header {
+    font-family: "PT Sans";
+}
