@@ -1,0 +1,27 @@
+div.dashboardContainer {
+    margin: 1% 0;
+    height: 98%;
+}
+div.menuColumn {
+    backdrop-filter: brightness(40%);
+}
+div.menuColumn > div.ui.segment {
+    font-family: "PT Sans";
+    height: 15%;
+}
+div.menuColumn > div.ui.menu.vertical {
+    height: 50%;
+    padding-top: 10%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    font-family: "PT Sans";
+}
+div.menuColumn > div.ui.menu.vertical > div.item {
+    color: #ffffff;
+    cursor: pointer;
+}
+div.menuColumn > div.ui.menu > div.item.header {
+    font-family: "PT Sans";
+    color: #f2711c;
+}
