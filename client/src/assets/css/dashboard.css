@@ -21,7 +21,15 @@ div.menuColumn > div.ui.menu.vertical > div.item {
     color: #ffffff;
     cursor: pointer;
 }
-div.menuColumn > div.ui.menu > div.item.header {
+div.menuColumn > div.ui.menu > div.item.header,
+div.modalOne.ui > h4.header,
+div.modalTwo.ui > h4.header {
     font-family: "PT Sans";
     color: #f2711c;
+}
+.dashboardContainer > .mainContent > div.segment.ui {
+    height: 15%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
