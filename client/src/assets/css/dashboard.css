@@ -21,9 +21,7 @@ div.menuColumn > div.ui.menu.vertical > div.item {
     color: #ffffff;
     cursor: pointer;
 }
-div.menuColumn > div.ui.menu > div.item.header,
-div.modalOne.ui > h4.header,
-div.modalTwo.ui > h4.header {
+div.menuColumn > div.ui.menu > div.item.header {
     font-family: "PT Sans";
     color: #f2711c;
 }
@@ -32,4 +30,8 @@ div.modalTwo.ui > h4.header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+form.exerciseForm > div.fields > div.field > div.ui > div.label {
+    background-color: #f2711c;
+    color: #ffffff;
 }

@@ -1,53 +1,34 @@
-import React from "react";
-import { Modal, Button } from "semantic-ui-react";
+import React, { useState } from "react";
+import { Segment, Button, Modal, Header } from "semantic-ui-react";
 
-import NewEntryExerciseForm from "./NewEntryExerciseForm";
+import ModalForm from "./ModalForm";
 
-const NewEntryModal = (props) => {
+const NewEntryModalBtn = () => {
+    const [open, setOpen] = useState(false);
+
     return (
-        <Modal
-            closeIcon
-            onClose={() => props.setFirstModal(false)}
-            onOpen={() => props.setFirstModal(true)}
-            open={props.firstModal}
-            size="small"
-            dimmer="blurring"
-            className="modalOne"
-            centered={false}
-        >
-            <Modal.Header content="Exercises" as="h4" />
-            <Modal.Content content={<NewEntryExerciseForm />} />
-            <Modal.Actions>
-                <Button
-                    content="Proceed"
-                    onClick={() => props.setSecondModal(true)}
-                    color="orange"
-                />
-            </Modal.Actions>
+        <Segment basic padded>
             <Modal
                 closeIcon
-                onClose={() => props.setSecondModal(false)}
-                open={props.secondModal}
-                size="tiny"
+                open={open}
+                trigger={<Button color="orange">New entry</Button>}
+                onClose={() => setOpen(false)}
+                onOpen={() => setOpen(true)}
                 dimmer="blurring"
-                className="modalTwo"
                 centered={false}
+                size="tiny"
             >
-                <Modal.Header content="Body Composition" as="h4" />
-                <Modal.Content></Modal.Content>
+                <Header icon="pin" content="Create Training Entry" />
+                <Modal.Content>
+                    <ModalForm />
+                </Modal.Content>
                 <Modal.Actions>
-                    <Button
-                        color="orange"
-                        content="Submit entry"
-                        onClick={() => {
-                            props.setFirstModal(false);
-                            props.setSecondModal(false);
-                        }}
-                    />
+                    <Button color="orange" onClick={() => setOpen(false)}>
+                        Submit Entry
+                    </Button>
                 </Modal.Actions>
             </Modal>
-        </Modal>
+        </Segment>
     );
 };
-
-export default NewEntryModal;
+export default NewEntryModalBtn;
