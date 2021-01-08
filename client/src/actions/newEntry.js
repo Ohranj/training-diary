@@ -13,6 +13,11 @@ export const addMemo = (memo) => ({
     payload: memo,
 });
 
+export const addDate = (date) => ({
+    type: "ADD_DATE",
+    payload: date,
+});
+
 export const removeExercise = (position) => ({
     type: "REMOVE_EXERCISE",
     payload: position,

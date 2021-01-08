@@ -27,6 +27,11 @@ export const newEntryReducer = (state = initialState, action) => {
                 ...state,
                 memo: action.payload,
             };
+        case "ADD_DATE":
+            return {
+                ...state,
+                date: action.payload,
+            };
         case "REMOVE_EXERCISE":
             return {
                 ...state,

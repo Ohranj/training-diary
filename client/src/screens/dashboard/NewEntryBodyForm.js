@@ -71,12 +71,12 @@ const NewEntryBodyForm = ({ dispatchBodyStats }) => {
                     disabled={!bodyInputs.hasOwnProperty("bodyweight")}
                     icon
                     labelPosition="left"
-                    basic
                     compact
                     color="orange"
                     type="submit"
+                    size="mini"
                 >
-                    <Icon name="plus" />
+                    <Icon name="plus" className="iconLabel" />
                     Add
                 </Button>
             </Form>

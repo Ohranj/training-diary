@@ -30,7 +30,11 @@ const NewEntryModalBtn = ({ entry }) => {
                     <ModalForm />
                 </Modal.Content>
                 <Modal.Actions>
-                    <Button color="orange" onClick={() => handleSubmit()}>
+                    <Button
+                        color="orange"
+                        onClick={() => handleSubmit()}
+                        disabled={!entry.date}
+                    >
                         Submit Entry
                     </Button>
                 </Modal.Actions>
@@ -45,3 +49,5 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps)(NewEntryModalBtn);
+
+//RESET STATE SO THAT WHEN CLOSE MODEL IT DOESNT APPEAR AGAIN

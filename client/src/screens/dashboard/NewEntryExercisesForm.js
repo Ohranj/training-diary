@@ -94,12 +94,12 @@ const NewEntryExercisesForm = ({ dispatchExercise }) => {
                     disabled={!exerciseInput.hasOwnProperty("exercise")}
                     icon
                     labelPosition="left"
-                    basic
                     compact
                     color="orange"
                     type="submit"
+                    size="mini"
                 >
-                    <Icon name="plus" />
+                    <Icon name="plus" className="iconLabel" />
                     Add
                 </Button>
             </Form>

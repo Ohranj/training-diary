@@ -33,7 +33,7 @@ div.menuColumn > div.ui.menu > div.item.header {
 }
 form.exerciseForm > div.fields > div.field > div.ui > div.label,
 form.bodyForm > div.fields > div.field > div.ui > div.label {
-    background-color: #f2711c;
+    background-color: #767676;
     color: #ffffff;
 }
 div.entryPreview > div.bodyStats {
@@ -45,4 +45,11 @@ div.entryPreview > div.memoPreview > div.ui > p {
 }
 .deleteRowIcon {
     cursor: pointer;
+}
+div.accordion > div.segment {
+    margin: 0;
+    padding: 0;
+}
+form.ui.form > button.ui.labeled > i.iconLabel {
+    color: #ffffff !important;
 }
