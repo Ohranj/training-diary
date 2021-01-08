@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Segment, Button, Modal, Header } from "semantic-ui-react";
 
 import ModalForm from "./ModalForm";
+import RenderFormEntry from "./RenderFormEntry";
 
 const NewEntryModalBtn = () => {
     const [open, setOpen] = useState(false);
@@ -27,6 +28,7 @@ const NewEntryModalBtn = () => {
                         Submit Entry
                     </Button>
                 </Modal.Actions>
+                <RenderFormEntry />
             </Modal>
         </Segment>
     );

@@ -12,3 +12,8 @@ export const addMemo = (memo) => ({
     type: "ADD_MEMO",
     payload: memo,
 });
+
+export const removeExercise = (position) => ({
+    type: "REMOVE_EXERCISE",
+    payload: position,
+});

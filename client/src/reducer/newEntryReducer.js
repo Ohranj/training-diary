@@ -1,9 +1,9 @@
 const initialState = {
     date: "",
     exercises: [],
-    bodyweight: "",
-    bodyfat: "",
-    calories: "",
+    bodyweight: 0,
+    bodyfat: 0,
+    calories: 0,
     memo: "",
 };
 
@@ -26,6 +26,14 @@ export const newEntryReducer = (state = initialState, action) => {
             return {
                 ...state,
                 memo: action.payload,
+            };
+        case "REMOVE_EXERCISE":
+            return {
+                ...state,
+                exercises: [
+                    ...state.exercises.slice(0, action.payload),
+                    ...state.exercises.slice(action.payload + 1),
+                ],
             };
         default:
             return state;

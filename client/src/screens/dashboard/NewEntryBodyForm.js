@@ -31,7 +31,10 @@ const NewEntryBodyForm = ({ dispatchBodyStats }) => {
             {showAddedMsg ? (
                 <Message success header="Stats Added" size="tiny" />
             ) : null}
-            <Form onSubmit={() => addBodyStats(() => resetLocalState())}>
+            <Form
+                onSubmit={() => addBodyStats(() => resetLocalState())}
+                className="bodyForm"
+            >
                 <Form.Group>
                     <Form.Field width={5}>
                         <Input
@@ -43,7 +46,7 @@ const NewEntryBodyForm = ({ dispatchBodyStats }) => {
                             value={bodyInputs.calories || ""}
                         />
                     </Form.Field>
-                    <Form.Field width={5}>
+                    <Form.Field width={6}>
                         <Input
                             label="B'weight"
                             type="number"

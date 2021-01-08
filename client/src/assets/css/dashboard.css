@@ -31,7 +31,8 @@ div.menuColumn > div.ui.menu > div.item.header {
     justify-content: flex-end;
     align-items: center;
 }
-form.exerciseForm > div.fields > div.field > div.ui > div.label {
+form.exerciseForm > div.fields > div.field > div.ui > div.label,
+form.bodyForm > div.fields > div.field > div.ui > div.label {
     background-color: #f2711c;
     color: #ffffff;
 }
