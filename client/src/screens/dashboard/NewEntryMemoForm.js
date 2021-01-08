@@ -6,7 +6,7 @@ import { addMemo } from "../../actions/newEntry";
 const NewEntryMemoForm = ({ dispatchMemo }) => (
     <Form>
         <TextArea
-            placeholder="Provide any notes about your workout or diet here..."
+            placeholder="Provide any notes about your day. Whether that be your workout, diet or thoughts..."
             onChange={(e, { value }) => dispatchMemo(value)}
         />
     </Form>

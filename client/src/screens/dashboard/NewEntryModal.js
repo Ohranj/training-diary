@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import { Segment, Button, Modal, Header } from "semantic-ui-react";
+import { connect } from "react-redux";
 
 import ModalForm from "./ModalForm";
 import RenderFormEntry from "./RenderFormEntry";
 
-const NewEntryModalBtn = () => {
+const NewEntryModalBtn = ({ entry }) => {
     const [open, setOpen] = useState(false);
+
+    const handleSubmit = () => {
+        console.log(entry);
+        setOpen(false);
+    };
 
     return (
         <Segment basic padded>
@@ -24,7 +30,7 @@ const NewEntryModalBtn = () => {
                     <ModalForm />
                 </Modal.Content>
                 <Modal.Actions>
-                    <Button color="orange" onClick={() => setOpen(false)}>
+                    <Button color="orange" onClick={() => handleSubmit()}>
                         Submit Entry
                     </Button>
                 </Modal.Actions>
@@ -33,4 +39,9 @@ const NewEntryModalBtn = () => {
         </Segment>
     );
 };
-export default NewEntryModalBtn;
+
+const mapStateToProps = (state) => ({
+    entry: state.newEntry,
+});
+
+export default connect(mapStateToProps)(NewEntryModalBtn);

@@ -36,3 +36,13 @@ form.bodyForm > div.fields > div.field > div.ui > div.label {
     background-color: #f2711c;
     color: #ffffff;
 }
+div.entryPreview > div.bodyStats {
+    display: flex;
+    justify-content: center;
+}
+div.entryPreview > div.memoPreview > div.ui > p {
+    color: #f2711c;
+}
+.deleteRowIcon {
+    cursor: pointer;
+}
