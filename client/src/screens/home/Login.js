@@ -30,9 +30,7 @@ const Login = ({
         <Container className="login">
             <Form className="loginForm" onSubmit={() => handleLogin()}>
                 <Form.Field>
-                    <Label color="orange" pointing="below">
-                        Email
-                    </Label>
+                    <Label color="orange" pointing="below" content="Email" />
                     <input
                         className="loginInput"
                         type="text"
@@ -40,9 +38,7 @@ const Login = ({
                     />
                 </Form.Field>
                 <Form.Field>
-                    <Label color="orange" pointing="below">
-                        Password
-                    </Label>
+                    <Label color="orange" pointing="below" content="Password" />
                     <input
                         className="loginInput"
                         type="password"
@@ -51,9 +47,7 @@ const Login = ({
                         }
                     />
                 </Form.Field>
-                <Button color="orange" type="submit" compact>
-                    Login
-                </Button>
+                <Button color="orange" type="submit" compact content="Login" />
             </Form>
         </Container>
     );

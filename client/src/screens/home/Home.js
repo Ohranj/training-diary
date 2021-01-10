@@ -46,7 +46,13 @@ const Home = () => {
                                 verticalAlign="middle"
                                 className="rightColumn"
                             >
-                                {loginFailed ? <FailMessage /> : null}
+                                {loginFailed ? (
+                                    <FailMessage
+                                        text={
+                                            "Error - Email and password do not match."
+                                        }
+                                    />
+                                ) : null}
                                 {loginSuccess ? (
                                     <SuccessMessage
                                         text={"Success - We're logging you in."}

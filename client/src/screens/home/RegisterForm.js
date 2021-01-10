@@ -47,10 +47,12 @@ const RegisterForm = ({ addFirstname, addSurname, addEmail, addPassword }) => (
                     type="password"
                     onChange={({ target }) => addPassword(target.value)}
                 />
-                <Label pointing color="orange">
-                    Passwords need to be at least 7 characters and contain a
-                    digit
-                </Label>
+                <Label
+                    pointing
+                    color="orange"
+                    content="Passwords need to be at least 7 characters and contain a
+                digit"
+                />
             </Form.Field>
             <Form.Field width={5}>
                 <label>Confirm Password</label>

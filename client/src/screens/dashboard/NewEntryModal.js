@@ -6,25 +6,29 @@ import { resetState } from "../../actions/newEntry";
 import ModalForm from "./ModalForm";
 import RenderFormEntry from "./RenderFormEntry";
 import SuccessMessage from "../../components/SuccessMessage";
+import FailMessage from "../../components/FailMessage";
 
 import addEntry from "../../apis/addEntry";
 
 const NewEntryModalBtn = ({ entry, dispatchReset }) => {
     const [open, setOpen] = useState(false);
     const [entryAdded, setEntryAdded] = useState(false);
+    const [error, setError] = useState(false);
 
     const handleSubmit = () =>
         addEntry(entry)
+            .then(() => setError(false))
             .then(() => setEntryAdded(true))
             .then(() =>
                 setTimeout(() => {
                     handleCloseModal();
                 }, 2000)
             )
-            .catch(() => console.log("error"));
+            .catch(() => setError(true));
 
     const handleCloseModal = () => {
         setEntryAdded(false);
+        setError(false);
         setOpen(false);
         dispatchReset();
     };
@@ -46,6 +50,9 @@ const NewEntryModalBtn = ({ entry, dispatchReset }) => {
                     <ModalForm />
                 </Modal.Content>
                 <Modal.Actions>
+                    {error ? (
+                        <FailMessage text="Error - An entry already exists with that date" />
+                    ) : null}
                     {entryAdded ? (
                         <SuccessMessage
                             text={"Entry added - Returning to the dashboard"}
@@ -74,3 +81,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewEntryModalBtn);
+
+//Handle on error when date already exists - do similar to success message

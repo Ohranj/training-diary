@@ -5,7 +5,7 @@ router.post("/new", async (req, res) =>
     UserModel.findOne(
         {
             _id: req.user._id,
-            "entries.date": { $ne: date },
+            "entries.date": { $ne: req.body.entry.date },
         },
         (err, doc) => {
             if (doc) {

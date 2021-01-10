@@ -1,7 +1,9 @@
 import React from "react";
-import { Message, Icon, Modal, Button } from "semantic-ui-react";
+import { Modal, Button } from "semantic-ui-react";
 
 import register from "../../apis/register";
+import SuccessMessage from "../../components/SuccessMessage";
+import FailMessage from "../../components/FailMessage";
 
 const ModalActions = ({
     setUserRegistered,
@@ -30,21 +32,10 @@ const ModalActions = ({
     return (
         <Modal.Actions>
             {registrationFailed ? (
-                <Message error>
-                    <Message.Content>
-                        <Message.Header>Error</Message.Header>
-                        Appears that username already exists?
-                    </Message.Content>
-                </Message>
+                <FailMessage text="Appears that email already exists" />
             ) : null}
             {userRegistered ? (
-                <Message success icon>
-                    <Icon name="circle notched" loading />
-                    <Message.Content>
-                        <Message.Header>Success</Message.Header>
-                        You can log in now. We're redirecting you
-                    </Message.Content>
-                </Message>
+                <SuccessMessage text="You can log in now. We're redirecting you" />
             ) : (
                 <Button
                     color="orange"

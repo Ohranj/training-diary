@@ -15,7 +15,7 @@ const MenuColumn = () => {
                 </Header>
             </Segment>
             <Menu text vertical>
-                <Menu.Item header>Body Graphs</Menu.Item>
+                <Menu.Item header content="Body Graphs" />
                 {menuItems.map((item, i) => (
                     <Menu.Item
                         key={i}
