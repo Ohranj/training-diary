@@ -3,7 +3,7 @@ import { Segment, Input, Label } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { addDate } from "../../actions/newEntry";
 
-const SubmitNewEntryBtn = ({ dispatchDate, entry }) => (
+const NewEntryDate = ({ dispatchDate, entry }) => (
     <Segment basic size="small" textAlign="right">
         {!entry.date ? (
             <Label
@@ -29,4 +29,4 @@ const mapStateToProps = (state) => ({
     entry: state.newEntry,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SubmitNewEntryBtn);
+export default connect(mapStateToProps, mapDispatchToProps)(NewEntryDate);

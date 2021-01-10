@@ -21,6 +21,9 @@ const userSchema = new Schema({
             message: (props) => `${props} does not contain a number`,
         },
     },
+    entries: {
+        type: Array,
+    },
 });
 
 userSchema.pre("save", function (next) {

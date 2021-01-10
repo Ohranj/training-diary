@@ -4,7 +4,7 @@ import { Accordion, Icon } from "semantic-ui-react";
 import NewEntryExercisesForm from "./NewEntryExercisesForm";
 import NewEntryBodyForm from "./NewEntryBodyForm";
 import NewEntryMemoForm from "./NewEntryMemoForm";
-import SubmitNewEntryBtn from "./SubmitNewEntryBtn";
+import NewEntryDate from "./NewEntryDate";
 
 const ModalForm = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -14,7 +14,7 @@ const ModalForm = () => {
 
     return (
         <Accordion>
-            <SubmitNewEntryBtn />
+            <NewEntryDate />
             <Accordion.Title
                 active={activeIndex === 0}
                 index={0}

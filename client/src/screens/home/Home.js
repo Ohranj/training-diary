@@ -47,7 +47,11 @@ const Home = () => {
                                 className="rightColumn"
                             >
                                 {loginFailed ? <FailMessage /> : null}
-                                {loginSuccess ? <SuccessMessage /> : null}
+                                {loginSuccess ? (
+                                    <SuccessMessage
+                                        text={"Success - We're logging you in."}
+                                    />
+                                ) : null}
                                 <Login
                                     setLoginFailed={setLoginFailed}
                                     setLoginSuccess={setLoginSuccess}

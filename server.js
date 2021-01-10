@@ -24,6 +24,7 @@ require("./backend/services/passport");
 
 //Routes
 const authRoutes = require("./backend/routes/auth");
+const entryRoutes = require("./backend/routes/entries.js");
 
 //Middleware
 app.use("/img", express.static(__dirname + "/backend/assets"));
@@ -42,5 +43,6 @@ app.use(passport.session());
 
 //Serve routes
 app.use("/", jsonParser, authRoutes);
+app.use("/entry", jsonParser, entryRoutes);
 
 app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));

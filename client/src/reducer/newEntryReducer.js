@@ -40,6 +40,8 @@ export const newEntryReducer = (state = initialState, action) => {
                     ...state.exercises.slice(action.payload + 1),
                 ],
             };
+        case "RESET_STATE":
+            return (state = initialState);
         default:
             return state;
     }

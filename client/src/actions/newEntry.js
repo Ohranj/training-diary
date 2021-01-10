@@ -22,3 +22,7 @@ export const removeExercise = (position) => ({
     type: "REMOVE_EXERCISE",
     payload: position,
 });
+
+export const resetState = () => ({
+    type: "RESET_STATE",
+});

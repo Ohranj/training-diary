@@ -1,11 +1,11 @@
 import React from "react";
 import { Message, Icon } from "semantic-ui-react";
 
-const SuccessMessage = () => {
+const SuccessMessage = ({ text }) => {
     return (
         <Message compact success size="small">
             <Icon name="circle notched" loading></Icon>
-            Success - We're logging you in.
+            {text}
         </Message>
     );
 };
