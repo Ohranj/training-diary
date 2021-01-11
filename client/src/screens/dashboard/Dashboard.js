@@ -5,6 +5,7 @@ import "../../assets/css/dashboard.css";
 
 import MenuColumn from "./MenuColumn";
 import NewEntryModal from "./NewEntryModal";
+import RenderEntries from "./RenderEntries";
 
 const Dashboard = () => (
     <Grid>
@@ -18,6 +19,7 @@ const Dashboard = () => (
                 width={10}
             >
                 <NewEntryModal />
+                <RenderEntries />
             </Grid.Column>
             <Grid.Column width={3}></Grid.Column>
         </Grid.Row>

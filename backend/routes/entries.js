@@ -1,6 +1,14 @@
 const router = require("express").Router();
 const UserModel = require("../model/User");
 
+//Get all entries
+router.get("/all", (req, res) =>
+    UserModel.findById(req.user._id, (err, doc) =>
+        doc ? res.status(200).send(doc.entries) : res.sendStatus(401)
+    )
+);
+
+//Post new entry
 router.post("/new", async (req, res) =>
     UserModel.findOne(
         {
