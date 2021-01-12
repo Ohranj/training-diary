@@ -2,7 +2,8 @@ div.dashboardContainer {
     margin: 1% 0;
     height: 98%;
 }
-div.menuColumn {
+div.menuColumn,
+div.calendarColumn {
     backdrop-filter: brightness(40%);
 }
 div.menuColumn > div.ui.segment {
@@ -25,11 +26,16 @@ div.menuColumn > div.ui.menu > div.item.header {
     font-family: "PT Sans";
     color: #f2711c;
 }
-.dashboardContainer > .mainContent > div.segment.ui {
+.dashboardContainer > .mainContent > div.segment.ui,
+.dashboardContainer > .calendarColumn > div.segment.ui {
     height: 15%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+.dashboardContainer > .calendarColumn > div.segment.ui {
+    justify-content: center;
+    align-items: initial;
 }
 form.exerciseForm > div.fields > div.field > div.ui > div.label,
 form.bodyForm > div.fields > div.field > div.ui > div.label {
@@ -52,4 +58,8 @@ div.accordion > div.segment {
 }
 form.ui.form > button.ui.labeled > i.iconLabel {
     color: #ffffff !important;
+}
+div.react-calendar {
+    font-family: "PT sans";
+    box-shadow: 0px 8px 20px 5px rgba(200, 200, 200, 0.87);
 }

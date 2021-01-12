@@ -6,6 +6,7 @@ import "../../assets/css/dashboard.css";
 import MenuColumn from "./MenuColumn";
 import NewEntryModal from "./NewEntryModal";
 import RenderEntries from "./RenderEntries";
+import CalendarColumn from "./CalendarColumn";
 
 const Dashboard = () => (
     <Grid>
@@ -16,12 +17,12 @@ const Dashboard = () => (
                 style={{
                     border: "1px solid black",
                 }}
-                width={10}
+                width={9}
             >
                 <NewEntryModal />
                 <RenderEntries />
             </Grid.Column>
-            <Grid.Column width={3}></Grid.Column>
+            <CalendarColumn />
         </Grid.Row>
     </Grid>
 );
