@@ -22,7 +22,8 @@ const NewEntryDate = ({ dispatchDate, entry }) => (
 );
 
 const mapDispatchToProps = (dispatch) => ({
-    dispatchDate: (date) => dispatch(addDate(date)),
+    dispatchDate: (date) =>
+        dispatch(addDate(new Date(date).toLocaleDateString("en-GB"))),
 });
 
 const mapStateToProps = (state) => ({

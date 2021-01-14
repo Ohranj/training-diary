@@ -10,7 +10,7 @@ const CalendarColumn = () => (
             textAlign="center"
             style={{ alignItems: "flex-end" }}
         >
-            <Header as="h2" icon size="small">
+            <Header as="h2" size="small">
                 View By Date
             </Header>
         </Segment>
