@@ -1,6 +1,7 @@
 import React from "react";
 import Calendar from "react-calendar";
 import { connect } from "react-redux";
+import { Icon } from "semantic-ui-react";
 
 import "react-calendar/dist/Calendar.css";
 import "../../assets/css/calendar.css";
@@ -16,9 +17,13 @@ const RenderCalendar = ({ allEntries }) => {
             onClickDay={(date) => formatDate(date, (val) => console.log(val))}
             tileClassName={({ date }) =>
                 formatDate(date, (val) =>
-                    renderActiveTiles(val) ? "activeTile" : null
+                    renderActiveTiles(val) ? "activeTile" : "inactiveTile"
                 )
             }
+            prev2Label={<Icon name="backward" />}
+            prevLabel={<Icon name="chevron circle left" />}
+            next2Label={<Icon name="forward" />}
+            nextLabel={<Icon name="chevron circle right" />}
         />
     );
 };

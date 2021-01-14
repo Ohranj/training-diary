@@ -10,9 +10,7 @@ const CalendarColumn = () => (
             textAlign="center"
             style={{ alignItems: "flex-end" }}
         >
-            <Header as="h2" size="small">
-                View By Date
-            </Header>
+            <Header as="h2" size="small"></Header>
         </Segment>
         <RenderCalendar />
     </Grid.Column>

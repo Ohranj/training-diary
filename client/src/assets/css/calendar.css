@@ -1,3 +1,44 @@
-.activeTile {
+div.react-calendar,
+div.react-calendar__month-view__days
+    > button.react-calendar__tile.inactiveTile:hover,
+div.react-calendar__navigation > button.react-calendar__navigation__arrow:hover,
+div.react-calendar__navigation > button.react-calendar__navigation__label:hover,
+div.react-calendar__navigation > button.react-calendar__navigation__arrow:focus,
+div.react-calendar__navigation
+    > button.react-calendar__navigation__label:focus {
+    background-color: transparent;
+}
+div.react-calendar,
+button.react-calendar__navigation__label,
+div.react-calendar__month-view__weekdays__weekday,
+div.react-calendar__month-view__days > button.react-calendar__tile.inactiveTile,
+div.react-calendar__month-view__days > button.react-calendar__tile.activeTile {
+    font-family: "PT Sans";
+}
+div.react-calendar {
+    box-shadow: 0px 6px 10px 2px rgba(200, 200, 200, 0.87);
+    border-radius: 5px;
+}
+button.react-calendar__navigation__label,
+button.react-calendar__navigation__arrow {
+    color: #f2711c;
+}
+div.react-calendar__month-view__weekdays__weekday,
+div.react-calendar__month-view__days > button.react-calendar__tile.activeTile,
+div.react-calendar__month-view__days > button.react-calendar__tile.inactiveTile,
+div.react-calendar__month-view__days
+    > button.react-calendar__tile.activeTile:hover {
+    color: #ffffff;
+}
+div.react-calendar__month-view__days
+    > button.react-calendar__tile.inactiveTile {
+    cursor: default;
+}
+div.react-calendar__month-view__days > button.react-calendar__tile.activeTile,
+div.react-calendar__month-view__days
+    > button.react-calendar__tile.activeTile:hover {
     background-color: #f2711c;
+}
+div.react-calendar__month-view__days > button.react-calendar__tile.activeTile {
+    border-radius: 10px;
 }
