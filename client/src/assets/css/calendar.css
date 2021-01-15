@@ -18,6 +18,7 @@ div.react-calendar__month-view__days > button.react-calendar__tile.activeTile {
 div.react-calendar {
     box-shadow: 0px 6px 10px 2px rgba(200, 200, 200, 0.87);
     border-radius: 5px;
+    margin: auto;
 }
 button.react-calendar__navigation__label,
 button.react-calendar__navigation__arrow {

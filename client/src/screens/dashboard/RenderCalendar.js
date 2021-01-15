@@ -6,15 +6,23 @@ import { Icon } from "semantic-ui-react";
 import "react-calendar/dist/Calendar.css";
 import "../../assets/css/calendar.css";
 
-const formatDate = (date, cb) => cb(new Date(date).toLocaleDateString("en-GB"));
+const RenderCalendar = ({ allEntries, setSelectedEntry }) => {
+    const formatDate = (date, cb) =>
+        cb(new Date(date).toLocaleDateString("en-GB"));
 
-const RenderCalendar = ({ allEntries }) => {
     const renderActiveTiles = (tile) =>
         allEntries.entries.find((entry) => entry.date === tile);
 
     return (
         <Calendar
-            onClickDay={(date) => formatDate(date, (val) => console.log(val))}
+            onClickDay={(date) =>
+                formatDate(date, (val) => {
+                    const selectedEntry = allEntries.entries.find(
+                        (entry) => entry.date === val
+                    );
+                    setSelectedEntry(selectedEntry);
+                })
+            }
             tileClassName={({ date }) =>
                 formatDate(date, (val) =>
                     renderActiveTiles(val) ? "activeTile" : "inactiveTile"
