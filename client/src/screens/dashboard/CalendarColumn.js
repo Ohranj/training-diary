@@ -1,20 +1,11 @@
 import React, { useState } from "react";
 import RenderCalendar from "./RenderCalendar";
-import {
-    Grid,
-    Segment,
-    Header,
-    Statistic,
-    Accordion,
-    Icon,
-} from "semantic-ui-react";
+import { Grid, Segment, Header, Statistic } from "semantic-ui-react";
+
+import CalendarRenderExercises from "./CalendarRenderExercises";
 
 const CalendarColumn = () => {
     const [selectedEntry, setSelectedEntry] = useState(undefined);
-    const [activeIndex, setActiveIndex] = useState(null);
-
-    const handleClick = (e, index) =>
-        activeIndex === index ? setActiveIndex(-1) : setActiveIndex(index);
 
     return (
         <Grid.Column width={4} className="calendarColumn">
@@ -26,7 +17,12 @@ const CalendarColumn = () => {
                         <Header content={selectedEntry.date} color="orange" />
                     </Segment>
                     <Segment basic compact>
-                        <Statistic.Group size="mini" inverted>
+                        <Statistic.Group
+                            size="mini"
+                            inverted
+                            color="orange"
+                            className="bodyStats"
+                        >
                             <Statistic
                                 value={selectedEntry.bodyweight}
                                 label="Bodyweight"
@@ -42,34 +38,20 @@ const CalendarColumn = () => {
                         </Statistic.Group>
                     </Segment>
                     <Segment basic compact>
-                        <Accordion>
-                            {selectedEntry.exercises.map((exercise, i) => (
-                                <div>
-                                    <Accordion.Title
-                                        active={activeIndex === i}
-                                        index={0}
-                                        onClick={(e, { index }) =>
-                                            handleClick(e, index)
-                                        }
-                                    >
-                                        <Icon name="dropdown" />
-                                        Exercise {i + 1}
-                                    </Accordion.Title>
-                                    <Accordion.Content
-                                        active={activeIndex === i}
-                                    >
-                                        <p style={{ color: "#ffffff" }}>
-                                            {exercise.exercise}:-
-                                            {exercise.sets} sets of
-                                            {exercise.reps} reps @
-                                            {exercise.weight} (kg/lbs)
-                                        </p>
-                                    </Accordion.Content>
-                                </div>
-                            ))}
-                        </Accordion>
+                        {selectedEntry.exercises.length > 0 ? (
+                            <CalendarRenderExercises
+                                selectedEntry={selectedEntry}
+                            />
+                        ) : (
+                            <p className="noExercises">No exercises recorded</p>
+                        )}
                     </Segment>
-                    <Segment basic compact content={selectedEntry.memo} />
+                    <Segment
+                        basic
+                        compact
+                        className="entryMemo"
+                        content={selectedEntry.memo}
+                    />
                 </Segment.Group>
             ) : null}
         </Grid.Column>

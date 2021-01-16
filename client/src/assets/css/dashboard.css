@@ -59,3 +59,30 @@ div.accordion > div.segment {
 form.ui.form > button.ui.labeled > i.iconLabel {
     color: #ffffff !important;
 }
+div.calendarExerciseAccordion > div.title {
+    color: #f2711c !important;
+    font-family: "PT Sans" !important;
+}
+div.calendarColumn
+    > div.segments
+    > div.segment
+    > div.statistics
+    > div.statistic {
+    margin: 0 auto;
+}
+table.renderEntryExercises {
+    background-color: transparent !important;
+}
+table.renderEntryExercises > tr {
+    color: #ffffff;
+}
+table.renderEntryExercises > tbody > tr > td {
+    color: #f2711c !important;
+}
+div.bodyStats > div.statistic > div {
+    font-family: "PT Sans" !important;
+}
+p.noExercises,
+div.entryMemo {
+    color: #ffffff;
+}
