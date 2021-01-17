@@ -1,4 +1,5 @@
 div.react-calendar,
+div.react-calendar__month-view__days > button.react-calendar__tile.inactiveTile,
 div.react-calendar__month-view__days
     > button.react-calendar__tile.inactiveTile:hover,
 div.react-calendar__navigation > button.react-calendar__navigation__arrow:hover,

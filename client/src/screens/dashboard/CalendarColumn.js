@@ -9,7 +9,7 @@ const CalendarColumn = () => {
 
     return (
         <Grid.Column width={4} className="calendarColumn">
-            <Segment basic padded />
+            <Segment basic />
             <RenderCalendar setSelectedEntry={setSelectedEntry} />
             {selectedEntry ? (
                 <Segment.Group>

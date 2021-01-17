@@ -28,16 +28,18 @@ const CalendarRenderExercises = ({ selectedEntry }) => {
                     textAlign="center"
                     className="renderEntryExercises"
                 >
-                    <Table.Row>
-                        <Table.HeaderCell />
-                        <Table.HeaderCell content={"Sets"} />
-                        <Table.HeaderCell content={"Reps"} />
-                        <Table.HeaderCell content={"kg / lbs"} />
-                    </Table.Row>
+                    <Table.Header>
+                        <Table.Row>
+                            <Table.HeaderCell />
+                            <Table.HeaderCell content={"Sets"} />
+                            <Table.HeaderCell content={"Reps"} />
+                            <Table.HeaderCell content={"kg / lbs"} />
+                        </Table.Row>
+                    </Table.Header>
                     <Table.Body>
                         {selectedEntry.exercises.map(
-                            ({ exercise, sets, reps, weight }) => (
-                                <Table.Row>
+                            ({ exercise, sets, reps, weight }, i) => (
+                                <Table.Row key={i}>
                                     <Table.Cell content={exercise} />
                                     <Table.Cell content={sets} />
                                     <Table.Cell content={reps} />
