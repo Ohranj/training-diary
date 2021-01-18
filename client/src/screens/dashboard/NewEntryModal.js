@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Segment, Button, Modal, Header } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { resetState } from "../../actions/newEntry";
+import { getAllEntries } from "../../actions/entries";
 
 import ModalForm from "./ModalForm";
 import RenderFormEntry from "./RenderFormEntry";
@@ -10,7 +11,7 @@ import FailMessage from "../../components/FailMessage";
 
 import addEntry from "../../apis/addEntry";
 
-const NewEntryModalBtn = ({ entry, dispatchReset }) => {
+const NewEntryModalBtn = ({ entry, dispatchReset, dispatchAllEntries }) => {
     const [open, setOpen] = useState(false);
     const [entryAdded, setEntryAdded] = useState(false);
     const [error, setError] = useState(false);
@@ -19,6 +20,7 @@ const NewEntryModalBtn = ({ entry, dispatchReset }) => {
         addEntry(entry)
             .then(() => setError(false))
             .then(() => setEntryAdded(true))
+            .then(() => dispatchAllEntries())
             .then(() =>
                 setTimeout(() => {
                     handleCloseModal();
@@ -78,8 +80,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     dispatchReset: () => dispatch(resetState()),
+    dispatchAllEntries: () => dispatch(getAllEntries()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewEntryModalBtn);
-
-//Handle on error when date already exists - do similar to success message
