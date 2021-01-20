@@ -5,22 +5,16 @@ import "../../assets/css/dashboard.css";
 
 import MenuColumn from "./MenuColumn";
 import NewEntryModal from "./NewEntryModal";
-import RenderEntries from "./RenderEntries";
+import RenderChart from "./RenderChart";
 import CalendarColumn from "./CalendarColumn";
 
 const Dashboard = () => (
     <Grid>
         <Grid.Row className="dashboardContainer">
             <MenuColumn />
-            <Grid.Column
-                className="mainContent"
-                style={{
-                    border: "1px solid black",
-                }}
-                width={9}
-            >
+            <Grid.Column className="mainContent" width={9}>
                 <NewEntryModal />
-                <RenderEntries />
+                <RenderChart />
             </Grid.Column>
             <CalendarColumn />
         </Grid.Row>

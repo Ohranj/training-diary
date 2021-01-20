@@ -95,3 +95,11 @@ p.noExercises,
 div.entryMemo {
     color: #ffffff;
 }
+form.exerciseRadioBtns > div.fields {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+form.exerciseRadioBtns > div.fields > div.field {
+    width: 22%;
+    margin: 0 0 10px 0 !important;
+}
