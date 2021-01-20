@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { Form, Radio } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 
 const ChartSelectorBtns = ({ allEntries, getActiveChart }) => {
     const [uniqueExercises, setUniqueExercises] = useState([]);
@@ -23,23 +23,25 @@ const ChartSelectorBtns = ({ allEntries, getActiveChart }) => {
         getActiveChart(activeBtn);
     }, [activeBtn, getActiveChart]);
 
-    return allEntries.loaded ? (
-        <Form className="exerciseRadioBtns">
-            <Form.Group>
-                {uniqueExercises.map((x, i) => (
-                    <Form.Field key={i}>
-                        <Radio
-                            label={x}
-                            name="exerciseBtn"
-                            value={x}
-                            checked={activeBtn === x}
-                            onChange={(e, { value }) => setActiveBtn(value)}
-                        />
-                    </Form.Field>
-                ))}
-            </Form.Group>
-        </Form>
-    ) : null;
+    return allEntries.loaded
+        ? uniqueExercises.map((exercise, i) => (
+              <Button
+                  key={i}
+                  onClick={() => setActiveBtn(exercise)}
+                  style={{
+                      margin: "5px 10px",
+                      fontFamily: "PT Sans",
+                      color: activeBtn === exercise ? "#ffffff" : "#f2711c",
+                      backgroundColor:
+                          activeBtn === exercise ? "#f2711c" : "#ffffff",
+                  }}
+                  content={exercise}
+                  size="small"
+                  compact
+                  circular
+              />
+          ))
+        : null;
 };
 
 const mapStateToProps = (state) => ({
