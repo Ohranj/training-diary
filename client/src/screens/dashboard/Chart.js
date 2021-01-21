@@ -15,22 +15,26 @@ const Chart = ({ chart, allEntries }) => {
 
     useEffect(() => {
         setChartData(() =>
-            allEntries.entries
-                .flatMap(({ exercises }) => exercises)
-                .filter(({ exercise }) => exercise === chart)
-                .map(({ sets, reps }) => ({
-                    x: Number(sets),
-                    y: Number(reps),
-                }))
+            allEntries.entries.reduce((acc, cur) => {
+                for (let x of cur.exercises) {
+                    if (x.exercise === chart) {
+                        acc.push({
+                            x: new Date(cur.date),
+                            y: Number(x.weight * (36 / (37 - x.reps))),
+                        });
+                    }
+                }
+                return acc;
+            }, [])
         );
     }, [allEntries, chart]);
 
     return chart ? (
-        <XYPlot width={500} height={400}>
+        <XYPlot width={400} height={400} xType="time">
             <HorizontalGridLines />
             <LineSeries data={chartData} />
-            <XAxis />
-            <YAxis />
+            <XAxis title="Date" />
+            <YAxis title="Est. 1 rep max" />
         </XYPlot>
     ) : (
         <p>Fetching chart data</p>
