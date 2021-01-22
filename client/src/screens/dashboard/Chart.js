@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
+import { XYPlot, LineSeries, XAxis, YAxis, Hint } from "react-vis";
+
 import "../../../node_modules/react-vis/dist/style.css";
-import {
-    XYPlot,
-    HorizontalGridLines,
-    LineSeries,
-    XAxis,
-    YAxis,
-} from "react-vis";
+import "../../assets/css/chart.css";
 
 const Chart = ({ chart, allEntries }) => {
     const [chartData, setChartData] = useState(undefined);
+    const [hintData, setHintData] = useState(null);
+
+    const sortDateTicks = (date) => date.split("/").reverse().join("");
 
     useEffect(() => {
         setChartData(() =>
@@ -19,22 +18,46 @@ const Chart = ({ chart, allEntries }) => {
                 for (let x of cur.exercises) {
                     if (x.exercise === chart) {
                         acc.push({
-                            x: new Date(cur.date),
-                            y: Number(x.weight * (36 / (37 - x.reps))),
+                            x: cur.date,
+                            y: Math.round(
+                                Number(x.weight * (36 / (37 - x.reps)))
+                            ),
                         });
                     }
                 }
-                return acc;
+                return acc.sort(
+                    (a, b) =>
+                        Number(sortDateTicks(a.x)) - Number(sortDateTicks(b.x))
+                );
             }, [])
         );
     }, [allEntries, chart]);
 
-    return chart ? (
-        <XYPlot width={400} height={400} xType="time">
-            <HorizontalGridLines />
-            <LineSeries data={chartData} />
-            <XAxis title="Date" />
-            <YAxis title="Est. 1 rep max" />
+    return chart && chartData.length > 2 ? (
+        <XYPlot
+            width={800}
+            height={500}
+            xType={"ordinal"}
+            className="chartPlot"
+        >
+            <Hint
+                value={hintData ? hintData : ""}
+                style={{
+                    value: {
+                        color: "#f2711c",
+                    },
+                }}
+            />
+            <LineSeries
+                data={chartData}
+                stroke={"#f2711c"}
+                strokeWidth={5}
+                curve={"curveMonotoneX"}
+                strokeDasharray={[5, 5]}
+                onNearestX={(value) => setHintData(value)}
+            />
+            <XAxis />
+            <YAxis />
         </XYPlot>
     ) : (
         <p>Fetching chart data</p>
