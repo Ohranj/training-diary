@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-
 import { XYPlot, LineSeries, XAxis, YAxis, Hint } from "react-vis";
 
 import "../../../node_modules/react-vis/dist/style.css";
 import "../../assets/css/chart.css";
+
+import Blurb from "./Blurb";
 
 const Chart = ({ chart, allEntries }) => {
     const [chartData, setChartData] = useState(undefined);
@@ -60,7 +61,7 @@ const Chart = ({ chart, allEntries }) => {
             <YAxis />
         </XYPlot>
     ) : (
-        <p>Fetching chart data</p>
+        <Blurb />
     );
 };
 

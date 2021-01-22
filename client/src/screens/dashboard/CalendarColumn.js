@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import RenderCalendar from "./RenderCalendar";
-import { Grid, Segment, Header, Statistic } from "semantic-ui-react";
+import { Grid, Segment, Header, Statistic, Label } from "semantic-ui-react";
 
 import CalendarRenderExercises from "./CalendarRenderExercises";
 
@@ -13,6 +13,14 @@ const CalendarColumn = () => {
             <RenderCalendar setSelectedEntry={setSelectedEntry} />
             {selectedEntry ? (
                 <Segment.Group>
+                    <Label
+                        as="button"
+                        color="orange"
+                        ribbon
+                        content="Edit entry"
+                        className="editEntryBtn"
+                        onClick={() => console.log(selectedEntry.date)}
+                    />
                     <Segment basic textAlign="center" compact>
                         <Header content={selectedEntry.date} color="orange" />
                     </Segment>

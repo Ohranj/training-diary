@@ -74,7 +74,8 @@ div.calendarColumn
     > div.statistic {
     margin: 0 auto;
 }
-div.calendarColumn > div.segments.ui > div.segment.ui > div.header {
+div.calendarColumn > div.segments.ui > div.segment.ui > div.header,
+button.editEntryBtn {
     font-family: "PT Sans";
 }
 table.renderEntryExercises,
@@ -94,4 +95,9 @@ div.bodyStats > div.statistic > div {
 p.noExercises,
 div.entryMemo {
     color: #ffffff;
+}
+button.editEntryBtn {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
 }
