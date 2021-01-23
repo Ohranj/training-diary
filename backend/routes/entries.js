@@ -29,4 +29,21 @@ router.post("/new", async (req, res) =>
     )
 );
 
+//Delete entry
+router.delete("/delete", (req, res) =>
+    UserModel.updateOne(
+        { _id: req.user._id },
+        {
+            $pull: {
+                entries: {
+                    date: req.body.entry,
+                },
+            },
+        },
+        (err, response) => {
+            response ? res.sendStatus(200) : res.sendStatus(401);
+        }
+    )
+);
+
 module.exports = router;

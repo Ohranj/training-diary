@@ -14,11 +14,24 @@ export const entriesReducer = (state = initialState, action) => {
             return {
                 entries: action.payload,
                 loaded: true,
+                error: false,
             };
         case "GET_ENTRIES_FAILED":
             return {
                 ...state,
                 loaded: true,
+                error: true,
+            };
+        case "DELETE_ENTRY":
+            return {
+                ...state,
+                entries: state.entries.filter(
+                    (entry) => entry.date !== action.payload
+                ),
+            };
+        case "DELETE_ENTRY_FAILED":
+            return {
+                ...state,
                 error: true,
             };
         default:

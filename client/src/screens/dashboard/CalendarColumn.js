@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import RenderCalendar from "./RenderCalendar";
-import { Grid, Segment, Header, Statistic, Label } from "semantic-ui-react";
+import { Grid, Segment, Header, Statistic } from "semantic-ui-react";
 
 import CalendarRenderExercises from "./CalendarRenderExercises";
+
+import EditEntry from "./EditEntry";
 
 const CalendarColumn = () => {
     const [selectedEntry, setSelectedEntry] = useState(undefined);
@@ -13,14 +15,7 @@ const CalendarColumn = () => {
             <RenderCalendar setSelectedEntry={setSelectedEntry} />
             {selectedEntry ? (
                 <Segment.Group>
-                    <Label
-                        as="button"
-                        color="orange"
-                        ribbon
-                        content="Edit entry"
-                        className="editEntryBtn"
-                        onClick={() => console.log(selectedEntry.date)}
-                    />
+                    <EditEntry selectedEntry={selectedEntry} />
                     <Segment basic textAlign="center" compact>
                         <Header content={selectedEntry.date} color="orange" />
                     </Segment>

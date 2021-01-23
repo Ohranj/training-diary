@@ -1,4 +1,5 @@
 import getEntries from "../apis/getEntries";
+import deleteEntry from "../apis/deleteEntry";
 
 export const getAllEntries = () => (dispatch) => {
     dispatch(getEntriesStarted());
@@ -9,6 +10,13 @@ export const getAllEntries = () => (dispatch) => {
         .catch((err) => {
             dispatch(getEntriesFailed(err.message));
         });
+};
+
+export const handleDeleteEntry = (entry) => (dispatch) => {
+    dispatch(deleteStoreEntry(entry));
+    deleteEntry(entry)
+        .then(() => console.log("ok"))
+        .catch(() => dispatch(deleteEntryFailed()));
 };
 
 const getEntriesStarted = () => ({
@@ -22,4 +30,13 @@ const getEntriesSuccess = (allEntries) => ({
 
 const getEntriesFailed = () => ({
     type: "GET_ENTRIES_FAILED",
+});
+
+const deleteStoreEntry = (entry) => ({
+    type: "DELETE_ENTRY",
+    payload: entry,
+});
+
+const deleteEntryFailed = () => ({
+    type: "DELETE_ENTRY_FAILED",
 });
