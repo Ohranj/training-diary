@@ -19,6 +19,11 @@ export const handleDeleteEntry = (entry) => (dispatch) => {
         .catch(() => dispatch(deleteEntryFailed()));
 };
 
+export const handleDeleteExercise = (entry) => (dispatch) => {
+    dispatch(deleteStoreExercise(entry));
+    //Delete entry from backend
+};
+
 const getEntriesStarted = () => ({
     type: "GET_ENTRIES_STARTED",
 });
@@ -39,4 +44,9 @@ const deleteStoreEntry = (entry) => ({
 
 const deleteEntryFailed = () => ({
     type: "DELETE_ENTRY_FAILED",
+});
+
+const deleteStoreExercise = (entry) => ({
+    type: "DELETE_EXERCISE",
+    payload: entry,
 });

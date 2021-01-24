@@ -1,55 +1,67 @@
-import React from "react";
-import { Table, Icon, Input } from "semantic-ui-react";
+import React, { useState, useEffect } from "react";
+import { Table, Icon } from "semantic-ui-react";
+import { connect } from "react-redux";
+import { handleDeleteExercise } from "../../actions/entries";
 
-import ExercisesList from "../../components/ExercisesList";
+const EditEntryExercises = ({ dispatchDeleteExercise, entry }) => {
+    const [currentEntry, setCurrentEntry] = useState(null);
 
-const EditEntryExercises = ({ entry }) => (
-    <Table compact celled size="small" textAlign="center" attached="top">
-        <Table.Header>
-            <Table.Row>
-                <Table.HeaderCell>Exercise</Table.HeaderCell>
-                <Table.HeaderCell>Sets</Table.HeaderCell>
-                <Table.HeaderCell>Reps</Table.HeaderCell>
-                <Table.HeaderCell>Weight</Table.HeaderCell>
-                <Table.HeaderCell></Table.HeaderCell>
-            </Table.Row>
-        </Table.Header>
-        <Table.Body>
-            {entry.exercises.map(({ exercise, sets, reps, weight }, i) => (
-                <Table.Row key={i}>
-                    <Table.Cell content={exercise} />
-                    <Table.Cell content={sets} />
-                    <Table.Cell content={reps} />
-                    <Table.Cell content={weight} />
-                    <Table.Cell content={<Icon name="trash" />} />
+    useEffect(() => {
+        setCurrentEntry(entry);
+    }, [entry, currentEntry]);
+
+    const handleDelete = (id, i) => {
+        dispatchDeleteExercise({
+            date: currentEntry.date,
+            id,
+        });
+        setCurrentEntry((prev) => ({
+            ...prev,
+            exercises: prev.exercises.splice(i, 1),
+        }));
+    };
+
+    return (
+        <Table compact celled size="small" textAlign="center" attached="top">
+            <Table.Header>
+                <Table.Row>
+                    <Table.HeaderCell>Exercise</Table.HeaderCell>
+                    <Table.HeaderCell>Sets</Table.HeaderCell>
+                    <Table.HeaderCell>Reps</Table.HeaderCell>
+                    <Table.HeaderCell>Weight</Table.HeaderCell>
+                    <Table.HeaderCell></Table.HeaderCell>
                 </Table.Row>
-            ))}
-            <Table.Row>
-                <Table.Cell
-                    content={
-                        <div>
-                            <Input
-                                size="mini"
-                                list="exercises"
-                                onChange={(e, { value }) => console.log(value)}
-                            />
-                            <datalist id="exercises">
-                                {ExercisesList.map((exercise, i) => (
-                                    <option key={i} value={exercise}>
-                                        {exercise}
-                                    </option>
-                                ))}
-                            </datalist>
-                        </div>
-                    }
-                />
-                <Table.Cell content={<Input size="mini" />} />
-                <Table.Cell content={<Input size="mini" />} />
-                <Table.Cell content={<Input size="mini" />} />
-                <Table.Cell content={<Icon name="plus" />} />
-            </Table.Row>
-        </Table.Body>
-    </Table>
-);
+            </Table.Header>
+            <Table.Body>
+                {currentEntry
+                    ? currentEntry.exercises.map(
+                          ({ exercise, sets, reps, weight, id }, i) => (
+                              <Table.Row key={id}>
+                                  <Table.Cell content={exercise} />
+                                  <Table.Cell content={sets} />
+                                  <Table.Cell content={reps} />
+                                  <Table.Cell content={weight} />
+                                  <Table.Cell
+                                      content={
+                                          <Icon
+                                              name="trash"
+                                              onClick={() =>
+                                                  handleDelete(id, i)
+                                              }
+                                          />
+                                      }
+                                  />
+                              </Table.Row>
+                          )
+                      )
+                    : null}
+            </Table.Body>
+        </Table>
+    );
+};
 
-export default EditEntryExercises;
+const mapDispatchToProps = (dispatch) => ({
+    dispatchDeleteExercise: (entry) => dispatch(handleDeleteExercise(entry)),
+});
+
+export default connect(null, mapDispatchToProps)(EditEntryExercises);

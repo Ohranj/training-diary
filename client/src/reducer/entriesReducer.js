@@ -34,6 +34,21 @@ export const entriesReducer = (state = initialState, action) => {
                 ...state,
                 error: true,
             };
+        case "DELETE_EXERCISE":
+            return {
+                ...state,
+                entries: state.entries.map((entry) =>
+                    entry.date === action.payload.date
+                        ? {
+                              ...entry,
+                              exercises: entry.exercises.filter(
+                                  (exercise) =>
+                                      exercise.id !== action.payload.id
+                              ),
+                          }
+                        : entry
+                ),
+            };
         default:
             return state;
     }

@@ -16,7 +16,7 @@ const NewEntryExercisesForm = ({ dispatchExercise }) => {
         }));
 
     const addExercise = (cb) => {
-        dispatchExercise(exerciseInput);
+        dispatchExercise({ ...exerciseInput, id: Math.random() });
         setShowAddedMsg(true);
         cb();
     };
