@@ -46,4 +46,21 @@ router.delete("/delete", (req, res) =>
     )
 );
 
+//Delete exercise
+router.delete("/delete/exercise", (req, res) =>
+    UserModel.updateOne(
+        { _id: req.user._id, "entries.date": req.body.date },
+        {
+            $pull: {
+                "entries.$.exercises": {
+                    id: req.body.id,
+                },
+            },
+        },
+        (err, response) => {
+            response ? res.sendStatus(200) : res.sendStatus(401);
+        }
+    )
+);
+
 module.exports = router;

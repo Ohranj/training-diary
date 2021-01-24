@@ -1,5 +1,6 @@
 import getEntries from "../apis/getEntries";
 import deleteEntry from "../apis/deleteEntry";
+import deleteExercise from "../apis/deleteExercise";
 
 export const getAllEntries = () => (dispatch) => {
     dispatch(getEntriesStarted());
@@ -21,7 +22,9 @@ export const handleDeleteEntry = (entry) => (dispatch) => {
 
 export const handleDeleteExercise = (entry) => (dispatch) => {
     dispatch(deleteStoreExercise(entry));
-    //Delete entry from backend
+    deleteExercise(entry)
+        .then(() => console.log("ok"))
+        .catch(() => console.log("err"));
 };
 
 const getEntriesStarted = () => ({

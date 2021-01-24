@@ -17,6 +17,11 @@ const EditEntryExercises = ({ dispatchDeleteExercise, entry }) => {
     const checkActiveRow = (i) => (row === i ? setRow(null) : setRow(i));
 
     const handleDelete = (id, i) => {
+        deleteFromStore(id, i);
+        resetDisplay();
+    };
+
+    const deleteFromStore = (id, i) => {
         dispatchDeleteExercise({
             date: currentEntry.date,
             id,
@@ -25,7 +30,6 @@ const EditEntryExercises = ({ dispatchDeleteExercise, entry }) => {
             ...prev,
             exercises: prev.exercises.splice(i, 1),
         }));
-        resetDisplay();
     };
 
     const resetDisplay = () => {
