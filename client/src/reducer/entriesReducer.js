@@ -49,7 +49,7 @@ export const entriesReducer = (state = initialState, action) => {
                         : entry
                 ),
             };
-        case "ADD_EXERCISE":
+        case "ADD_EDIT_EXERCISE":
             return {
                 ...state,
                 entries: state.entries.map((entry) =>

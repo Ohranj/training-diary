@@ -16,12 +16,11 @@ const RenderCalendar = ({ allEntries, setSelectedEntry }) => {
     return (
         <Calendar
             onClickDay={(date) =>
-                formatDate(date, (val) => {
-                    const selectedEntry = allEntries.entries.find(
-                        (entry) => entry.date === val
-                    );
-                    setSelectedEntry(selectedEntry);
-                })
+                formatDate(date, (val) =>
+                    setSelectedEntry(
+                        allEntries.entries.find((entry) => entry.date === val)
+                    )
+                )
             }
             tileClassName={({ date }) =>
                 formatDate(date, (val) =>

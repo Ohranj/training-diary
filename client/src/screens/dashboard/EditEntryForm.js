@@ -6,27 +6,21 @@ import { handleDeleteEntry } from "../../actions/entries";
 import EditEntryExercises from "./EditEntryExercises";
 
 const EditEntryForm = ({ entry, dispatchDeleteEntry }) => (
-    <Grid>
+    <Grid className="editEntry">
         <Grid.Row>
             <Grid.Column textAlign="left" width={1}>
                 <Icon
                     name="trash"
                     size="large"
-                    style={{ cursor: "pointer" }}
                     onClick={() => dispatchDeleteEntry(entry.date)}
                 />
             </Grid.Column>
-            <Grid.Column
-                textAlign="right"
-                width={15}
-                style={{ alignSelf: "flex-end" }}
-            >
+            <Grid.Column textAlign="right" width={15}>
                 <Header content={entry.date} as="h4" color="orange" />
             </Grid.Column>
         </Grid.Row>
         <Grid.Row>
-            <Grid.Column width={1} />
-            <Grid.Column width={15}>
+            <Grid.Column>
                 <EditEntryExercises date={entry.date} />
             </Grid.Column>
         </Grid.Row>

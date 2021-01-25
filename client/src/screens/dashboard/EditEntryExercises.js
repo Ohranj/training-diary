@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Table, Icon } from "semantic-ui-react";
+import { Table, Icon, Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { handleDeleteExercise } from "../../actions/entries";
 
@@ -41,9 +41,9 @@ const EditEntryExercises = ({ dispatchDeleteExercise, date, allEntries }) => {
     };
 
     return (
-        <div>
+        <Segment basic raised compact size="mini" className="editTable">
             {showDeleteMsg ? <SuccessMessage text="Exercise deleted" /> : null}
-            <Table compact celled size="small" textAlign="center" columns={4}>
+            <Table compact celled textAlign="center" inverted color="grey">
                 <Table.Header>
                     <Table.Row>
                         <Table.HeaderCell>Exercise</Table.HeaderCell>
@@ -66,6 +66,7 @@ const EditEntryExercises = ({ dispatchDeleteExercise, date, allEntries }) => {
                                       <Table.Cell
                                           content={
                                               <Icon
+                                                  className="deleteEditIcon"
                                                   name="trash"
                                                   onClick={() =>
                                                       checkActiveRow(i)
@@ -77,6 +78,7 @@ const EditEntryExercises = ({ dispatchDeleteExercise, date, allEntries }) => {
                                           <Table.Cell
                                               content={
                                                   <Icon
+                                                      className="deleteEditIcon"
                                                       name="check"
                                                       onClick={() =>
                                                           handleDelete(id, i)
@@ -94,7 +96,7 @@ const EditEntryExercises = ({ dispatchDeleteExercise, date, allEntries }) => {
                     <EditAddExercise date={date} />
                 </Table.Body>
             </Table>
-        </div>
+        </Segment>
     );
 };
 

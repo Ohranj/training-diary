@@ -19,7 +19,6 @@ const EditEntry = ({ selectedEntry, allEntries }) => {
             content={<EditEntryForm entry={entry} />}
             on="click"
             position="left center"
-            flowing
             size="mini"
             trigger={
                 <Label

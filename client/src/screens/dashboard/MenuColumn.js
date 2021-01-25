@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Grid, Segment, Header, Icon, Menu } from "semantic-ui-react";
 
 const MenuColumn = () => {
-    const menuItems = ["View Bodyweight", "View Bodyfat", "Combine"];
+    const menuItems = ["View Bodyweight", "View Bodyfat"];
     const activeHover = useRef("#f2711c");
     const inactiveHover = useRef("#ffffff");
 

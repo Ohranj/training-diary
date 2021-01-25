@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Table, Input, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { addExercise } from "../../actions/entries";
+import { handleAddExercise } from "../../actions/entries";
 
 import ExercisesList from "../../components/ExercisesList";
 
-const EditAddExercise = ({ date, dispatchAddExercise }) => {
+const EditAddExercise = ({ date, dispatchHandleAddExercise }) => {
     const [inputs, setInputs] = useState({});
 
     const handleInputs = (value, prop) =>
@@ -26,7 +26,6 @@ const EditAddExercise = ({ date, dispatchAddExercise }) => {
                             onChange={(e, { value }) =>
                                 handleInputs(value, "exercise")
                             }
-                            value={inputs.exercise || ""}
                         />
                         <datalist id="exercises">
                             {ExercisesList.map((exercise, i) => (
@@ -64,9 +63,10 @@ const EditAddExercise = ({ date, dispatchAddExercise }) => {
             <Table.Cell
                 content={
                     <Icon
+                        className="addEditIcon"
                         name="plus"
                         onClick={() =>
-                            dispatchAddExercise(
+                            dispatchHandleAddExercise(
                                 { ...inputs, id: Math.random() },
                                 date
                             )
@@ -80,8 +80,8 @@ const EditAddExercise = ({ date, dispatchAddExercise }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    dispatchAddExercise: (exercise, date) =>
-        dispatch(addExercise(exercise, date)),
+    dispatchHandleAddExercise: (exercise, date) =>
+        dispatch(handleAddExercise(exercise, date)),
 });
 
 export default connect(null, mapDispatchToProps)(EditAddExercise);

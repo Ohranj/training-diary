@@ -15,12 +15,9 @@ export const newEntryReducer = (state = initialState, action) => {
                 exercises: [...state.exercises, action.payload],
             };
         case "ADD_BODY_STATS":
-            const { calories, bodyweight, bodyfat } = action.payload;
             return {
                 ...state,
-                calories,
-                bodyweight,
-                bodyfat,
+                ...action.payload,
             };
         case "ADD_MEMO":
             return {
@@ -41,7 +38,7 @@ export const newEntryReducer = (state = initialState, action) => {
                 ],
             };
         case "RESET_STATE":
-            return (state = initialState);
+            return initialState;
         default:
             return state;
     }

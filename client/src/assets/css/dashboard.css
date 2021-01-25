@@ -48,7 +48,10 @@ div.entryPreview > div.bodyStats {
 div.entryPreview > div.memoPreview > div.ui > p {
     color: #f2711c;
 }
-.deleteRowIcon {
+.deleteRowIcon,
+div.editEntry.ui > div.row > div.left.column > i,
+i.deleteEditIcon,
+i.addEditIcon {
     cursor: pointer;
 }
 div.accordion > div.segment {
@@ -100,4 +103,11 @@ button.editEntryBtn {
     cursor: pointer;
     position: absolute;
     top: 10px;
+}
+div.editEntry.ui > div:nth-child(2) {
+    padding: 0;
+}
+div.segment.editTable {
+    margin: 0;
+    padding-top: 0;
 }

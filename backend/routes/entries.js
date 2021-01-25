@@ -40,9 +40,8 @@ router.delete("/delete", (req, res) =>
                 },
             },
         },
-        (err, response) => {
-            response ? res.sendStatus(200) : res.sendStatus(401);
-        }
+        (err, response) =>
+            response ? res.sendStatus(200) : res.sendStatus(401)
     )
 );
 
@@ -57,9 +56,24 @@ router.delete("/delete/exercise", (req, res) =>
                 },
             },
         },
-        (err, response) => {
-            response ? res.sendStatus(200) : res.sendStatus(401);
-        }
+        (err, response) =>
+            response ? res.sendStatus(200) : res.sendStatus(401)
+    )
+);
+
+//Add exercise
+router.patch("/add/exercise", (req, res) =>
+    UserModel.updateOne(
+        { _id: req.user._id, "entries.date": req.body.date },
+        {
+            $push: {
+                "entries.$.exercises": {
+                    ...req.body.exercise,
+                },
+            },
+        },
+        (err, response) =>
+            response ? res.sendStatus(200) : res.sendStatus(401)
     )
 );
 

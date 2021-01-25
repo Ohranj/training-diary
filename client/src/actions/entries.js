@@ -1,6 +1,7 @@
 import getEntries from "../apis/getEntries";
 import deleteEntry from "../apis/deleteEntry";
 import deleteExercise from "../apis/deleteExercise";
+import addExercise from "../apis/addExercise";
 
 export const getAllEntries = () => (dispatch) => {
     dispatch(getEntriesStarted());
@@ -19,6 +20,13 @@ export const handleDeleteEntry = (entry) => (dispatch) => {
 export const handleDeleteExercise = (entry) => (dispatch) => {
     dispatch(deleteStoreExercise(entry));
     deleteExercise(entry)
+        .then(() => console.log("Success"))
+        .catch(() => console.log("Error"));
+};
+
+export const handleAddExercise = (exercise, date) => (dispatch) => {
+    dispatch(addEditExercise(exercise, date));
+    addExercise(exercise, date)
         .then(() => console.log("Success"))
         .catch(() => console.log("Error"));
 };
@@ -50,8 +58,8 @@ const deleteStoreExercise = (entry) => ({
     payload: entry,
 });
 
-export const addExercise = (exercise, date) => ({
-    type: "ADD_EXERCISE",
+const addEditExercise = (exercise, date) => ({
+    type: "ADD_EDIT_EXERCISE",
     payload: {
         exercise,
         date,

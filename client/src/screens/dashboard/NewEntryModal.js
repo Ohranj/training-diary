@@ -48,9 +48,7 @@ const NewEntryModalBtn = ({ entry, dispatchReset, dispatchAllEntries }) => {
                 size="tiny"
             >
                 <Header icon="pin" content="Create Training Entry" />
-                <Modal.Content>
-                    <ModalForm />
-                </Modal.Content>
+                <Modal.Content content={<ModalForm />} />
                 <Modal.Actions>
                     {error ? (
                         <FailMessage text="Error - An entry already exists with that date" />
