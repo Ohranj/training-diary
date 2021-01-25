@@ -4,24 +4,23 @@ import { connect } from "react-redux";
 import { handleDeleteExercise } from "../../actions/entries";
 
 import SuccessMessage from "../../components/SuccessMessage";
+import EditAddExercise from "./EditAddExercise";
 
-const EditEntryExercises = ({ dispatchDeleteExercise, entry }) => {
+const EditEntryExercises = ({ dispatchDeleteExercise, date, allEntries }) => {
     const [currentEntry, setCurrentEntry] = useState(null);
     const [showDeleteMsg, setShowDeleteMsg] = useState(false);
     const [row, setRow] = useState(null);
 
     useEffect(() => {
-        setCurrentEntry(entry);
-    }, [entry, currentEntry]);
+        setCurrentEntry(...allEntries.filter((entry) => entry.date === date));
+    }, [allEntries, date]);
 
     const checkActiveRow = (i) => (row === i ? setRow(null) : setRow(i));
 
-    const handleDelete = (id, i) => {
-        deleteFromStore(id, i);
-        resetDisplay();
-    };
+    const handleDelete = (id, i) =>
+        deleteFromStore(id, i, () => resetDisplay());
 
-    const deleteFromStore = (id, i) => {
+    const deleteFromStore = (id, i, cb) => {
         dispatchDeleteExercise({
             date: currentEntry.date,
             id,
@@ -30,6 +29,7 @@ const EditEntryExercises = ({ dispatchDeleteExercise, entry }) => {
             ...prev,
             exercises: prev.exercises.splice(i, 1),
         }));
+        cb();
     };
 
     const resetDisplay = () => {
@@ -43,7 +43,7 @@ const EditEntryExercises = ({ dispatchDeleteExercise, entry }) => {
     return (
         <div>
             {showDeleteMsg ? <SuccessMessage text="Exercise deleted" /> : null}
-            <Table compact celled size="small" textAlign="center">
+            <Table compact celled size="small" textAlign="center" columns={4}>
                 <Table.Header>
                     <Table.Row>
                         <Table.HeaderCell>Exercise</Table.HeaderCell>
@@ -91,6 +91,7 @@ const EditEntryExercises = ({ dispatchDeleteExercise, entry }) => {
                               )
                           )
                         : null}
+                    <EditAddExercise date={date} />
                 </Table.Body>
             </Table>
         </div>
@@ -101,4 +102,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatchDeleteExercise: (entry) => dispatch(handleDeleteExercise(entry)),
 });
 
-export default connect(null, mapDispatchToProps)(EditEntryExercises);
+const mapStateToProps = (state) => ({
+    allEntries: state.allEntries.entries,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditEntryExercises);

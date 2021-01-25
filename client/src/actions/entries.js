@@ -5,26 +5,22 @@ import deleteExercise from "../apis/deleteExercise";
 export const getAllEntries = () => (dispatch) => {
     dispatch(getEntriesStarted());
     getEntries()
-        .then((allEntries) => {
-            dispatch(getEntriesSuccess(allEntries));
-        })
-        .catch((err) => {
-            dispatch(getEntriesFailed(err.message));
-        });
+        .then((allEntries) => dispatch(getEntriesSuccess(allEntries)))
+        .catch((err) => dispatch(getEntriesFailed(err.message)));
 };
 
 export const handleDeleteEntry = (entry) => (dispatch) => {
     dispatch(deleteStoreEntry(entry));
     deleteEntry(entry)
-        .then(() => console.log("ok"))
+        .then(() => console.log("Success"))
         .catch(() => dispatch(deleteEntryFailed()));
 };
 
 export const handleDeleteExercise = (entry) => (dispatch) => {
     dispatch(deleteStoreExercise(entry));
     deleteExercise(entry)
-        .then(() => console.log("ok"))
-        .catch(() => console.log("err"));
+        .then(() => console.log("Success"))
+        .catch(() => console.log("Error"));
 };
 
 const getEntriesStarted = () => ({
@@ -52,4 +48,12 @@ const deleteEntryFailed = () => ({
 const deleteStoreExercise = (entry) => ({
     type: "DELETE_EXERCISE",
     payload: entry,
+});
+
+export const addExercise = (exercise, date) => ({
+    type: "ADD_EXERCISE",
+    payload: {
+        exercise,
+        date,
+    },
 });

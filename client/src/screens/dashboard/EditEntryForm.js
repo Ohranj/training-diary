@@ -27,7 +27,7 @@ const EditEntryForm = ({ entry, dispatchDeleteEntry }) => (
         <Grid.Row>
             <Grid.Column width={1} />
             <Grid.Column width={15}>
-                <EditEntryExercises entry={entry} />
+                <EditEntryExercises date={entry.date} />
             </Grid.Column>
         </Grid.Row>
     </Grid>
