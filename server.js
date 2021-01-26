@@ -27,7 +27,7 @@ const authRoutes = require("./backend/routes/auth");
 const entryRoutes = require("./backend/routes/entries.js");
 
 //Middleware
-app.use("/img", express.static(path.join(__dirname + "/backend/assets")));
+app.use("/img", express.static(path.join(__dirname, "backend/assets")));
 app.use(
     session({
         secret: process.env.sessionKey,
