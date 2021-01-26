@@ -26,7 +26,7 @@ const Home = () => {
                     <Grid>
                         <Label
                             as="a"
-                            href="/login/google"
+                            href="http://localhost:8080/login/google"
                             color="orange"
                             tag
                             floating
