@@ -6,16 +6,14 @@ import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../screens/dashboard/Dashboard";
 import NoPageFound from "../screens/404/404";
 
-const App = () => {
-    return (
-        <BrowserRouter>
-            <Switch>
-                <Route path="/" exact component={Home} />
-                <PrivateRoute path="/dashboard" component={Dashboard} />
-                <Route component={NoPageFound} />
-            </Switch>
-        </BrowserRouter>
-    );
-};
+const App = () => (
+    <BrowserRouter>
+        <Switch>
+            <Route path="/" exact component={Home} />
+            <PrivateRoute path="/dashboard" component={Dashboard} />
+            <Route component={NoPageFound} />
+        </Switch>
+    </BrowserRouter>
+);
 
 export default App;
