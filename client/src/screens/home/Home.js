@@ -26,7 +26,7 @@ const Home = () => {
                     <Grid>
                         <Label
                             as="a"
-                            href="https://training-diary.herokuapp.com/login/google"
+                            href="/login/google"
                             color="orange"
                             tag
                             floating
