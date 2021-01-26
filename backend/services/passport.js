@@ -17,8 +17,7 @@ passport.use(
         {
             clientID: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_SECRET,
-            callbackURL:
-                "https://training-diary.herokuapp.com/login/google/callback",
+            callbackURL: "/login/google/callback",
             proxy: true,
         },
         async (accessToken, refreshToken, profile, done) => {
