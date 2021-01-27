@@ -49,11 +49,9 @@ passport.use(
             if (!userExists) {
                 return done(null, false);
             }
-            compare(password, userExists.password, (err, match) =>
+            compare(password, userExists.password).then((match) =>
                 match ? done(null, userExists) : done(null, false)
             );
         }
     )
 );
-
-//Seems to be a issue with compare statement

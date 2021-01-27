@@ -18,11 +18,7 @@ const NoPageFound = () => {
         <Grid verticalAlign="middle" textAlign="center">
             <Grid.Row className="pageContent">
                 <Grid.Column>
-                    <Image
-                        src="https://training-diary.herokuapp.com/img/404.png"
-                        size="large"
-                        centered
-                    />
+                    <Image src="/img/404.png" size="large" centered />
                     <Message
                         floating
                         header="404"
