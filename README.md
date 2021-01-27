@@ -1,6 +1,6 @@
 # Training Diary
 
-[The project is hosted here via Heroku](https://training-diary.herokuapp.com/)
+[The project is hosted via Heroku and can be found here](https://training-diary.herokuapp.com/)
 
 ### Features
 
@@ -16,3 +16,15 @@ Feel free to create a new account via google or local login. Or you can use the 
 Username:- user@account.com
 Password:- account1
 ```
+
+### Technology uses
+
+The project was built using the MERN stack, in addition
+
+-   It uses passport.js for authentication
+-   [React-vis for the chart](https://uber.github.io/react-vis/)
+-   [React-calendar for the calendar](https://www.npmjs.com/package/react-calendar)
+
+### Images
+
+![Home screen](https://imgur.com/a/4KzKSeb)
