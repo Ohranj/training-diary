@@ -8,15 +8,9 @@ router.post("/login", passport.authenticate("local"), (req, res) =>
 
 router.get(
     "/login/google",
-    passport.authenticate(
-        "google",
-        {
-            scope: ["profile", "email"],
-        },
-        () => {
-            console.log("backend google");
-        }
-    )
+    passport.authenticate("google", {
+        scope: ["profile", "email"],
+    })
 );
 
 router.get(
