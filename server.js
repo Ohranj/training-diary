@@ -19,7 +19,6 @@ const authRoutes = require("./backend/routes/auth");
 const entryRoutes = require("./backend/routes/entries.js");
 
 //Middleware
-app.use("/img", express.static(path.join(__dirname + "backend/assets")));
 app.use(
     session({
         secret: process.env.sessionKey,
@@ -44,5 +43,7 @@ if (process.env.NODE_ENV === "production") {
         res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
     );
 }
+
+app.use("/img", express.static(path.join(__dirname + "backend/assets")));
 
 app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));
