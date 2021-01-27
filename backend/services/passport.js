@@ -8,13 +8,9 @@ config();
 
 passport.serializeUser((user, done) => done(null, user.id));
 
-passport.deserializeUser((id, done) => {
-    console.log("im here");
-    UserModel.findById(id, (err, user) => {
-        console.log(2);
-        done(err, user);
-    });
-});
+passport.deserializeUser((id, done) =>
+    UserModel.findById(id, (err, user) => done(err, user))
+);
 
 passport.use(
     new googleStrategy(
@@ -53,8 +49,15 @@ passport.use(
             if (!userExists) {
                 return done(null, false);
             }
+            console.log("pls hit");
             const passwordMatch = await compare(password, userExists.password);
-            passwordMatch ? done(null, userExists) : done(null, false);
+            if (passwordMatch) {
+                console.log("should");
+                return done(null, userExists);
+            } else {
+                console.log("shouldnt");
+                return done(null, false);
+            }
         }
     )
 );
