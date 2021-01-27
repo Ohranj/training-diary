@@ -6,17 +6,15 @@ const { compare } = require("bcryptjs");
 const { config } = require("dotenv");
 config();
 
-passport.serializeUser((user, done) => {
-    console.log(1);
-    done(null, user.id);
-});
+passport.serializeUser((user, done) => done(null, user.id));
 
-passport.deserializeUser((id, done) =>
+passport.deserializeUser((id, done) => {
+    console.log("im here");
     UserModel.findById(id, (err, user) => {
         console.log(2);
         done(err, user);
-    })
-);
+    });
+});
 
 passport.use(
     new googleStrategy(
