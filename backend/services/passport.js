@@ -6,10 +6,16 @@ const { compare } = require("bcryptjs");
 const { config } = require("dotenv");
 config();
 
-passport.serializeUser((user, done) => done(null, user.id));
+passport.serializeUser((user, done) => {
+    console.log(1);
+    done(null, user.id);
+});
 
 passport.deserializeUser((id, done) =>
-    UserModel.findById(id, (err, user) => done(err, user))
+    UserModel.findById(id, (err, user) => {
+        console.log(2);
+        done(err, user);
+    })
 );
 
 passport.use(
@@ -49,9 +55,7 @@ passport.use(
             if (!userExists) {
                 return done(null, false);
             }
-            console.log(1);
             const passwordMatch = await compare(password, userExists.password);
-            console.log(2);
             passwordMatch ? done(null, userExists) : done(null, false);
         }
     )
