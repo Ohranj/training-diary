@@ -33,3 +33,5 @@ The project was built using the MERN stack, in addition
 
 -   Wire up graphin body composition
 -   Hide edit entry popup on entry delete
+-   Correct serving static file path to work with Heroku
+-   Add x and y axis to chart
