@@ -46,7 +46,7 @@ passport.use(
         },
         async (username, password, done) => {
             const userExists = await UserModel.findOne({ email: username });
-            console.log("im here");
+            console.log(userExists);
             if (!userExists) {
                 return done(null, false);
             }
