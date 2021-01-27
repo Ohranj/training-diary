@@ -72,6 +72,7 @@ div.calendarExerciseSegment {
 div.calendarExerciseAccordion > div.title {
     color: #f2711c !important;
     font-family: "PT Sans" !important;
+    padding: 0 !important;
 }
 div.calendarColumn
     > div.segments
