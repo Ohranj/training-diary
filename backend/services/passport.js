@@ -49,8 +49,10 @@ passport.use(
             if (!userExists) {
                 return done(null, false);
             }
-            const passwordMatch = await compare(password, userExists.password);
-            console.log(passwordMatch);
+            compare(password, userExists.password, (err, result) => {
+                console.log(err);
+                console.log(result);
+            });
             passwordMatch ? done(null, userExists) : done(null, false);
         }
     )
