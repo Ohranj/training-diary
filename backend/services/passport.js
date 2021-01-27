@@ -49,10 +49,10 @@ passport.use(
             if (!userExists) {
                 return done(null, false);
             }
-            compare(password, userExists.password, (err, result) => {
-                console.log(err);
-                console.log(result);
-            });
+            compare(password, userExists.password).then((response) =>
+                console.log(response)
+            );
+            //passwordMatch ? done(null, userExists) : done(null, false);
         }
     )
 );
