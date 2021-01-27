@@ -53,7 +53,6 @@ passport.use(
                 console.log(err);
                 console.log(result);
             });
-            passwordMatch ? done(null, userExists) : done(null, false);
         }
     )
 );
