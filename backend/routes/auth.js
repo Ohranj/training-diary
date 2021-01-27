@@ -8,19 +8,15 @@ router.post("/login", passport.authenticate("local"), (req, res) =>
 
 router.get(
     "/login/google",
-    passport.authenticate(
-        "google",
-        {
-            scope: ["profile", "email"],
-        },
-        () => console.log("Google")
-    )
+    passport.authenticate("google", {
+        scope: ["profile", "email"],
+    })
 );
 
 router.get(
     "/login/google/callback",
     passport.authenticate("google"),
-    (req, res) => res.redirect("http://localhost:3000/dashboard")
+    (req, res) => res.redirect("/dashboard")
 );
 
 router.get("/user", (req, res) =>
