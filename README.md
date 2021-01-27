@@ -13,8 +13,8 @@
 Feel free to create a new account via google or local login. Or you can use the demo account:
 
 ```
-Username:- demo@account.com
-Password:- demo123
+Username:- test@test.com
+Password:- test123
 ```
 
 ### Technology used
