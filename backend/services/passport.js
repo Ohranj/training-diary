@@ -46,11 +46,12 @@ passport.use(
         },
         async (username, password, done) => {
             const userExists = await UserModel.findOne({ email: username });
-            console.log(userExists);
             if (!userExists) {
                 return done(null, false);
             }
+            console.log(1);
             const passwordMatch = await compare(password, userExists.password);
+            console.log(2);
             passwordMatch ? done(null, userExists) : done(null, false);
         }
     )
