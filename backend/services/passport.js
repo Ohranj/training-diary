@@ -49,7 +49,7 @@ passport.use(
             if (!userExists) {
                 return done(null, false);
             }
-            compare(password, userExists.password, (result) => {
+            compare(password, userExists.password, (err, result) => {
                 console.log(result);
                 result ? done(null, userExists) : done(null, false);
             });
