@@ -49,7 +49,8 @@ passport.use(
             if (!userExists) {
                 return done(null, false);
             }
-            bcrypt.compare(password, userExists.password, (result) => {
+            bcrypt.compare(password, userExists.password, (err, result) => {
+                console.log(err);
                 console.log(result);
             });
             //passwordMatch ? done(null, userExists) : done(null, false);
