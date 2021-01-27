@@ -2,9 +2,10 @@ const router = require("express").Router();
 const passport = require("passport");
 const UserModel = require("../model/User");
 
-router.post("/login", passport.authenticate("local"), (req, res) =>
-    req.user ? res.sendStatus(200) : res.sendStatus(401)
-);
+router.post("/login", passport.authenticate("local"), (req, res) => {
+    console.log(req.user);
+    req.user ? res.sendStatus(200) : res.sendStatus(401);
+});
 
 router.get(
     "/login/google",

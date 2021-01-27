@@ -49,15 +49,9 @@ passport.use(
             if (!userExists) {
                 return done(null, false);
             }
-            console.log("pls hit");
-            const passwordMatch = await compare(password, userExists.password);
-            if (passwordMatch) {
-                console.log("should");
-                return done(null, userExists);
-            } else {
-                console.log("shouldnt");
-                return done(null, false);
-            }
+            compare(password, userExists.password)
+                .then(() => done(null, userExists))
+                .catch(() => done(null, false));
         }
     )
 );
