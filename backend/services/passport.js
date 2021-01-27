@@ -49,6 +49,7 @@ passport.use(
             if (!userExists) {
                 return done(null, false);
             }
+            console.log(userExists);
             compare(password, userExists.password).then((response) =>
                 console.log(response)
             );
