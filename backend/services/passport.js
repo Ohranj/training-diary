@@ -2,7 +2,7 @@ const passport = require("passport");
 const localStrategy = require("passport-local").Strategy;
 const googleStrategy = require("passport-google-oauth20").Strategy;
 const UserModel = require("../model/User");
-const bcrypt = require("bcryptjs");
+const { compare } = require("bcryptjs");
 const { config } = require("dotenv");
 config();
 
@@ -49,11 +49,10 @@ passport.use(
             if (!userExists) {
                 return done(null, false);
             }
-            bcrypt.compare(password, userExists.password, (err, result) => {
-                console.log(err);
+            compare(password, userExists.password, (result) => {
                 console.log(result);
+                result ? done(null, userExists) : done(null, false);
             });
-            //passwordMatch ? done(null, userExists) : done(null, false);
         }
     )
 );
