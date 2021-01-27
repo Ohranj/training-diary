@@ -13,18 +13,23 @@
 Feel free to create a new account via google or local login. Or you can use the demo account:
 
 ```
-Username:- user@account.com
-Password:- account1
+Username:- demo@account.com
+Password:- demo123
 ```
 
-### Technology uses
+### Technology used
 
 The project was built using the MERN stack, in addition
 
 -   It uses passport.js for authentication
 -   [React-vis for the chart](https://uber.github.io/react-vis/)
--   [React-calendar for the calendar](https://www.npmjs.com/package/react-calendar)
+-   [React-calendar for the... calendar](https://www.npmjs.com/package/react-calendar)
 
 ### Images
 
 ![Home screen](https://i.imgur.com/3cVWiyF.png)
+
+#### Still to complete
+
+-   Wire up graphin body composition
+-   Hide edit entry popup on entry delete

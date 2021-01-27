@@ -66,6 +66,9 @@ div.calendarExerciseAccordion > div.content {
     overflow-y: scroll;
     padding: 0;
 }
+div.calendarExerciseSegment {
+    padding-top: 0px;
+}
 div.calendarExerciseAccordion > div.title {
     color: #f2711c !important;
     font-family: "PT Sans" !important;
@@ -88,6 +91,7 @@ table.renderEntryExercises > thead > tr > th {
 }
 table.renderEntryExercises > thead > tr > th {
     color: #ffffff !important;
+    padding: 0 !important;
 }
 table.renderEntryExercises > tbody > tr > td {
     color: #f2711c !important;
@@ -98,6 +102,10 @@ div.bodyStats > div.statistic > div {
 p.noExercises,
 div.entryMemo {
     color: #ffffff;
+}
+div.entryMemo {
+    height: 75px;
+    overflow-y: scroll;
 }
 button.editEntryBtn {
     cursor: pointer;

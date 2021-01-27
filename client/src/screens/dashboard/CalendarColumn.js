@@ -40,7 +40,7 @@ const CalendarColumn = () => {
                             />
                         </Statistic.Group>
                     </Segment>
-                    <Segment basic compact>
+                    <Segment basic compact className="calendarExerciseSegment">
                         {selectedEntry.exercises.length > 0 ? (
                             <CalendarRenderExercises
                                 selectedEntry={selectedEntry}
