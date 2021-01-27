@@ -45,6 +45,9 @@ if (process.env.NODE_ENV === "production") {
     );
 }
 
-app.use("/img", express.static(path.join(__dirname + "client/build")));
+app.use(
+    "/img",
+    express.static(path.join(__dirname + "client/build/backend/assets"))
+);
 
 app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));
