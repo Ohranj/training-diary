@@ -49,8 +49,8 @@ passport.use(
             if (!userExists) {
                 return done(null, false);
             }
-            compare(password, userExists.password).then((succ, err) =>
-                succ ? done(null, userExists) : done(null, false)
+            compare(password, userExists.password, (err, suc) =>
+                err ? done(null, false) : done(null, userExists)
             );
         }
     )
