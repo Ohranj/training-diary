@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { Grid, Image, Message } from "semantic-ui-react";
+import errImg from "../../assets/img/404.png";
 
 import "../../assets/css/404.css";
 
@@ -18,11 +19,7 @@ const NoPageFound = () => {
         <Grid verticalAlign="middle" textAlign="center">
             <Grid.Row className="pageContent">
                 <Grid.Column>
-                    <Image
-                        src="../../assets/img/404.png"
-                        size="large"
-                        centered
-                    />
+                    <Image src={errImg} size="large" centered />
                     <Message
                         floating
                         header="404"
