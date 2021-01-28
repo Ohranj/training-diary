@@ -28,6 +28,7 @@ The project was built using the MERN stack, in addition
 ### Images
 
 ![Home screen](https://i.imgur.com/3cVWiyF.png)
+![Dashboard](https://i.imgur.com/WmsJmBb.png)
 
 #### Still to complete
 
