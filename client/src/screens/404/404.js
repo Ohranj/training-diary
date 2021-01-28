@@ -18,7 +18,11 @@ const NoPageFound = () => {
         <Grid verticalAlign="middle" textAlign="center">
             <Grid.Row className="pageContent">
                 <Grid.Column>
-                    <Image src="/img/404.png" size="large" centered />
+                    <Image
+                        src="../../assets/img/404.png"
+                        size="large"
+                        centered
+                    />
                     <Message
                         floating
                         header="404"

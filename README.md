@@ -32,5 +32,3 @@ The project was built using the MERN stack, in addition
 #### Still to complete
 
 -   Wire up graphing body composition
--   Correct serving static file path to work with Heroku -
--   Once the dyno sleeps, the login fails to work on next usage. Email registers as already existing and can register a new email and login but their appears a problem with bcryptjs in hashing and comparing the passwords
