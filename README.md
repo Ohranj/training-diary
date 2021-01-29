@@ -21,7 +21,8 @@ Password:- demo123
 
 The project was built using the MERN stack, in addition
 
--   It uses passport.js for authentication
+-   Redux for state management
+-   Passport.js for authentication
 -   [React-vis for the chart](https://uber.github.io/react-vis/)
 -   [React-calendar for the... calendar](https://www.npmjs.com/package/react-calendar)
 
